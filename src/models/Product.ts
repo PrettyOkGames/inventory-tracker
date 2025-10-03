@@ -9,13 +9,12 @@ export class Product {
         this.price = price
     }
     
-    displayDetails(productDetails: string) {
-        return `${productDetails}`
+    displayDetails() {
+        return `SKU: ${this.sku}, Name: ${this.name}`
         //returns a formatted string with the product’s details
     }
-    getPriceWithTax(itemPrice: number, taxRate: number) {
+    public getPriceWithTax(taxRate: number) {
         //calculates the final price of the product with tax
-        let realPrice = itemPrice * (taxRate + 1);
-        return realPrice;
+        return this.price * (taxRate + 1);
     }
 }

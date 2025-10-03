@@ -1,5 +1,5 @@
 import {Product} from "./Product";
-class PhysicalProduct extends Product {
+export class PhysicalProduct extends Product {
     weight: number;
 
     constructor(sku: string, name: string, price: number, weight: number) {
@@ -7,10 +7,10 @@ class PhysicalProduct extends Product {
         this.weight = weight
     }
 
-    override getPriceWithTax(itemPrice: number, taxRate: number): string {
-        return `` + itemPrice * (1 + taxRate)
+    getPriceWithTax(taxRate: number) {
+        return this.price * (1 + taxRate)
     }
-    get productWeight(): number {
-        return this.weight
+    get productWeightInKilograms() {
+        return `${this.weight / 2.205} kg`
     }
 }

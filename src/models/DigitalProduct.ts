@@ -1,5 +1,5 @@
 import {Product} from "./Product";
-class DigitalProduct extends Product {
+export class DigitalProduct extends Product {
     fileSize: number;
 
     constructor(sku: string, name: string, price: number, fileSize: number) {
@@ -7,7 +7,18 @@ class DigitalProduct extends Product {
         this.fileSize = fileSize
     }
 
-    getPriceWithTax(itemPrice: number, taxRate: number): number {
-        return 2
+    getPriceWithTax() {
+        return this.price
+    }
+    get filesSize(): string {
+        if (this.fileSize < 1000) {
+            return `${this.fileSize} KB`
+        }
+        else if (this.fileSize >= 1000 && this.fileSize < 1000000) {
+            return `${(this.fileSize / 1000).toFixed(2)} MB`
+        }
+        else {
+            return `${(this.fileSize / 1000000).toFixed(2)} GB`
+        }
     }
 }
