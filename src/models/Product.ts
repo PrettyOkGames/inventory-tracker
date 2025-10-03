@@ -13,7 +13,9 @@ export class Product {
         return `${productDetails}`
         //returns a formatted string with the product’s details
     }
-    getPriceWithTax() {
+    getPriceWithTax(itemPrice: number, taxRate: number) {
         //calculates the final price of the product with tax
+        let realPrice = itemPrice * (taxRate + 1);
+        return realPrice;
     }
 }

@@ -7,8 +7,8 @@ class PhysicalProduct extends Product {
         this.weight = weight
     }
 
-    getPriceWithTax(taxRate: number) {
-
+    override getPriceWithTax(itemPrice: number, taxRate: number): string {
+        return `` + itemPrice * (1 + taxRate)
     }
     get productWeight(): number {
         return this.weight

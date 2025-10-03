@@ -7,10 +7,7 @@ class DigitalProduct extends Product {
         this.fileSize = fileSize
     }
 
-    getPriceWithTax(taxRate: number) {
-
-    }
-    get productWeight(): number {
-        return this.weight
+    getPriceWithTax(itemPrice: number, taxRate: number): number {
+        return 2
     }
 }
